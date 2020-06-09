@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>CHEAP FURNITURE! 75% OFF!</title>
+        <script src="dist/bundle.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+
+        <div id="layout-container">
+            <div style="text-align:center">
+
+                <div id="game-container"></div>
+
+                <div class="form-box">
+                    &#128266; Sound: 
+                    <select value="off">
+                        <option value="off">OFF</option>
+                        <option>0</option>
+                        <option>false</option>
+                        <option>silent</option>
+                        <option>simulate deafness</option>
+                        <option>!on</option>
+                        <option disabled>very loud</option>
+                        <option>no sound</option>
+                        <option>ø</option>
+                        <option>extremely quiet (inaudible to the human ear)</option>
+                        <option disabled>on</option>
+                    </select>
+                </div>
+
+                <div class="form-box">
+                    💬 Your comment:
+                    <input
+                    type="text"
+                    id="comment"
+                    placeholder="Write your comment here!">
+                    </input>
+
+                    <button
+                    onmouseover="this.innerHTML='Don\'t send!'"
+                    onmouseout="this.innerHTML='Send!'"
+                    style="width:200px;height:32px;">
+                        Send!
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <script>
+
+            var bg = false;
+
+            function emojiize(){
+                var s = document.getElementById('comment').value;
+                s = s.substring(0, s.length - 1) + String.fromCodePoint(s.substring(s.length - 1).charCodeAt(0) - 65 + 127777);
+                document.getElementById('comment').value = s;
+            }
+            document.getElementById('comment').addEventListener('input', emojiize);
+
+            setInterval(function(){
+                if (bg){
+                    document.body.style.backgroundImage = "url(src/assets/images/treasures/" + Math.floor(Math.random()*(26+1)) + ".png)";
+                }
+            }, 2000);
+
+        </script>
+
+    </body>
+</html>
